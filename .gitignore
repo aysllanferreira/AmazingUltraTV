@@ -10,3 +10,6 @@ backups/
 
 .claude
 openspec
+
+# Personal themes (your own images, possibly copyrighted); never committed
+my-themes/

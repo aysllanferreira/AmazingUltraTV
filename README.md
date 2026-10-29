@@ -51,6 +51,25 @@ powershell -ExecutionPolicy Bypass -File scripts\push-theme.ps1 themes\glass
 - `set-home.ps1` makes AmazingUltraTV the TV's home screen. It backs up first, turns the stock home screen off (nothing is uninstalled), and undoes itself if the Home button doesn't land on AmazingUltraTV. On Google TV, the setup wizard can grab Home; the script then tells you to run it again with `-AlsoDisableSetupWizard`.
 - `restore-home.ps1` puts the TV's original home screen back.
 
+## Personal themes and wallpapers
+
+Make a theme of your own in `my-themes/<name>/`. Git ignores that folder, so your pictures, including ones you're not allowed to share, never get committed or pushed. A theme is a `config.json` (see [themes/README.md](themes/README.md) for every setting; copying one of the bundled themes is a good start) plus a `wallpapers/` folder.
+
+To turn your own pictures into wallpapers, put them in a folder, say `my-themes/<name>/source/`, and run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\prepare-wallpapers.ps1 -Source my-themes\<name>\source -Theme my-themes\<name> -Captions
+powershell -ExecutionPolicy Bypass -File scripts\push-theme.ps1 my-themes\<name>
+```
+
+Each picture becomes a 1920x1080 JPEG in `my-themes/<name>/wallpapers/`, darkened toward the bottom and the top left so the dock and clock stay readable. Your originals are never changed.
+
+- `-Anchor left|center|right` sets which side of a too-wide picture to keep; the default is `center`.
+- `-MaxKB <size>` sets the largest file per wallpaper, 300 KB by default. Raise it, say to 600, for detailed art in a theme you keep to yourself: file size doesn't change how much memory the TV uses. A picture that still won't fit is skipped with a message.
+- `-Captions` shows each picture's file name in the corner of the screen: name a file `Golden Coast.jpg` and the caption reads "Golden Coast". The theme also needs `"wallpaper_captions": true`.
+
+JPEG, PNG, BMP and GIF pictures work. Convert WebP files to JPEG or PNG first.
+
 ## Undo
 
 ```powershell
