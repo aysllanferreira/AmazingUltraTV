@@ -4,18 +4,18 @@ A theme is a folder with a `config.json` and, optionally, a picture: a `wallpape
 collection. Pushing one changes the launcher's dock, layout and look on the TV without rebuilding the
 APK: the launcher reads `config.json` as an overlay over its built-in `config.xml` the next time it starts.
 Choices made in Launcher settings take priority until you choose Follow theme. Pushing a theme or
-using `tools/theme.sh --reset` also clears those on-TV column and motion choices.
+resetting it also clears those on-TV column and motion choices.
 
-```bash
-TV_HOST=192.168.1.50 tools/theme.sh themes/aurora          # push a theme and restart Home
-TV_HOST=192.168.1.50 tools/theme.sh --reset                # back to the built-in config.xml
-powershell -ExecutionPolicy Bypass -File tools\theme.ps1 -TvHost 192.168.1.50 themes\aurora
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\push-theme.ps1 themes\aurora   # push a theme and restart Home
+powershell -ExecutionPolicy Bypass -File scripts\push-theme.ps1 -Reset          # back to the built-in config.xml
 ```
 
-`tools/venv/bin/python -I tools/manage.py list themes` and `list switches` list them from this file, `show <name>` gives one with its
-screenshot, and `manage.py set <switch> <value> --theme <your folder>` writes a key into a theme folder of your own
-and pushes it with `theme.sh`. The folder has to be outside this checkout: one under `themes/` or `examples/` is
-refused (copy a theme first), and a `config.json` it cannot read is named before anything is written or pushed.
+The scripts take the TV's address from `-TvHost <tv-ip>` or the `AUT_TV_HOST` environment variable.
+
+> AmazingUltraTV: these themes come from CleanYourTV. Where its theme docs mention `tools/` (`theme.sh`,
+> `manage.py`, `tv.py`, `race_calendar.py` and others), those are CleanYourTV's Python tools, which this repo
+> does not include. Push themes with `scripts\push-theme.ps1` instead.
 
 | Theme | What it does | Screenshot |
 |---|---|---|
@@ -32,7 +32,7 @@ refused (copy a theme first), and a `config.json` it cannot read is named before
 | `retro/` | Pure black, a dock with no band or border, a rim-only focus highlight (`glass_style: rim`), no colour gradient, icon-only top buttons, and a wallpaper for morning, afternoon and night. The three pictures are the author's own; see `retro/CREDITS.md`. By [REGT-URRED](https://github.com/REGT-URRED) | <img src="retro/screenshot.jpg" width="320" alt="retro theme"> |
 | `sweden/` | Three photos of Sweden from Wikimedia Commons (the aurora over Abisko, Vasabron at dusk, Skeppsbron in the evening), a new one every hour with its place and photographer under the buttons; six small tiles in a frosted-glass dock, round icon-only buttons, no hero name. The photos are CC BY / CC BY-SA, not MIT: see `sweden/CREDITS.md` | <img src="sweden/screenshot.jpg" width="320" alt="sweden theme"> |
 
-Every theme folder has a `screenshot.jpg` of Home with that theme on a real TV. `tools/theme.sh` never
+Every theme folder has a `screenshot.jpg` of Home with that theme on a real TV. The push script never
 pushes it; it is only here so you can see a theme before you try it.
 
 ## Keys
