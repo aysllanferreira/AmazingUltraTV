@@ -159,7 +159,8 @@
         </service>
 
         <!-- market://launch?id=<package>: package-name app launches from the Android TV Remote service
-             (Home Assistant android_tv_remote), normally served by the stock launcher. -->
+             (Home Assistant android_tv_remote), normally served by the stock launcher.
+             AmazingUltraTV: no BROWSABLE category, so web links can't use this to open arbitrary apps. -->
         <activity
             android:name=".AppLaunchActivity"
             android:exported="true"
@@ -169,7 +170,6 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="market" android:host="launch" />
             </intent-filter>
         </activity>
