@@ -48,6 +48,8 @@ powershell -ExecutionPolicy Bypass -File scripts\push-theme.ps1 themes\glass
 - `backup-tv.ps1` saves the TV's apps and settings to `backups\<date>`.
 - `install.ps1` installs and opens the launcher, but leaves the TV's default home screen alone.
 - `push-theme.ps1` applies a theme from `themes/`; `-Reset` goes back to the built-in look.
+- `set-home.ps1` makes AmazingUltraTV the TV's home screen. It backs up first, turns the stock home screen off (nothing is uninstalled), and undoes itself if the Home button doesn't land on AmazingUltraTV. On Google TV, the setup wizard can grab Home; the script then tells you to run it again with `-AlsoDisableSetupWizard`.
+- `restore-home.ps1` puts the TV's original home screen back.
 
 ## Undo
 
