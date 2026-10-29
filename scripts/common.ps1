@@ -3,6 +3,9 @@ $Root = Split-Path -Parent $PSScriptRoot
 $Package = 'com.amazingultratv.home'
 $HomeActivity = "$Package/com.gathin.tvhome.MainActivity"
 $Apk = Join-Path $Root 'launcher\app\build\outputs\apk\release\app-release.apk'
+$StockLauncher = 'com.google.android.apps.tv.launcherx'
+# Google TV's setup wizard also claims Home (RecoveryActivity) and can take over once the stock launcher is off.
+$SetupWizard = 'com.google.android.tungsten.setupwraith'
 
 function Find-Adb {
     $cmd = Get-Command adb -ErrorAction SilentlyContinue
