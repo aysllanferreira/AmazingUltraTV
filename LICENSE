@@ -1,6 +1,7 @@
 MIT License
 
 Copyright (c) 2026 Aysllan Ferreira
+Copyright (c) 2026 Gathin (CleanYourTV, formerly tv-vibehack)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +20,18 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+Third-party material in this repository keeps its own licence, not the MIT
+licence above:
+
+- The Outfit typeface in launcher/app/src/main/res/font/ is copyright The
+  Outfit Project Authors, under the SIL Open Font License 1.1; see
+  launcher/FONT-LICENSE-OFL.txt.
+- The Halloween skin's pictures in launcher/app/src/main/res/drawable-nodpi/
+  are from Microsoft's Fluent Emoji, under the MIT licence; see
+  launcher/ICONS-LICENSE-FLUENT-EMOJI.txt.
+- Theme wallpapers are under CC0, CC BY or CC BY-SA, as listed in each
+  theme's CREDITS.md (themes/*/CREDITS.md). Adaptations of CC BY-SA pictures
+  stay under CC BY-SA.

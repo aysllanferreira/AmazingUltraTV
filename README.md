@@ -2,6 +2,8 @@
 
 An Apple TV-style home screen for Android TV and Google TV: a black home screen, a large top shelf for the focused app, a dock of favourites, an app grid that slides up, and a clock screensaver. It is a small native Java app with no internet permission, no tracking and no ads.
 
+![AmazingUltraTV's home screen on a Philips Google TV](docs/screenshots/home.png)
+
 Built and tested on a Philips 4K Smart TV (Google TV, Android 11, 1.7 GB RAM).
 
 ## What's in this repo
@@ -55,12 +57,14 @@ adb uninstall com.amazingultratv.home
 
 Each `backups\<date>` folder lists every app and setting as it was, so anything changed on the TV can be put back.
 
-## Changes from upstream
-
-- Installs as its own app (`com.amazingultratv.home`, named AmazingUltraTV), separate from tv-vibehack.
-- The `market://launch` handler no longer accepts web links, so a web page can't use it to open apps.
-- Windows PowerShell scripts in place of the upstream install scripts. They never grant extra system permissions.
-
 ## Credits
 
-Based on [tv-vibehack](https://github.com/Gathin23/tv-vibehack) by Gathin (commit `42fe7b0`), MIT licensed. The Outfit typeface is under the SIL Open Font License (`launcher/FONT-LICENSE-OFL.txt`); icon licenses are in `launcher/ICONS-LICENSE-FLUENT-EMOJI.txt`.
+AmazingUltraTV is built on [CleanYourTV](https://github.com/Gathin23/cleanyourtv) (formerly tv-vibehack) by Gathin, under the MIT licence. [CREDITS.md](CREDITS.md) explains what came from CleanYourTV, what AmazingUltraTV changed, and the licences of the font, icons and theme wallpapers. [UPSTREAM.md](UPSTREAM.md) records which CleanYourTV version we're based on.
+
+## Licence
+
+MIT, see [LICENSE](LICENSE). The font, emoji pictures and theme wallpapers keep their own licences, listed there and in [CREDITS.md](CREDITS.md).
+
+## Trademarks
+
+AmazingUltraTV is an independent project. It is not affiliated with, endorsed by or sponsored by Apple, Google or Philips. "Apple TV" describes the style of the home screen. Apple TV, Google TV, Android TV and Philips are trademarks of their owners, as are the app names and logos in the screenshot.
