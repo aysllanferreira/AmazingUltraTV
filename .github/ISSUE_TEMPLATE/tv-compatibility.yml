@@ -1,0 +1,53 @@
+name: TV compatibility report
+description: Tell us how AmazingUltraTV works on your TV, good or bad.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Reports from real TVs help everyone. Please don't include your TV's IP address or network name.
+  - type: input
+    id: tv-model
+    attributes:
+      label: TV brand and model
+      placeholder: Philips 55PUS8808
+    validations:
+      required: true
+  - type: dropdown
+    id: tv-os
+    attributes:
+      label: TV system
+      options:
+        - Google TV
+        - Android TV
+        - Other / not sure
+    validations:
+      required: true
+  - type: input
+    id: android-version
+    attributes:
+      label: Android version
+      description: On the TV, Settings → System → About.
+      placeholder: "11"
+    validations:
+      required: true
+  - type: input
+    id: launcher-version
+    attributes:
+      label: AmazingUltraTV version
+      placeholder: 3.2 (versionCode 11)
+    validations:
+      required: true
+  - type: checkboxes
+    id: works
+    attributes:
+      label: What worked
+      options:
+        - label: The launcher installed and opened
+        - label: It became the default home screen and the Home button opens it
+        - label: Themes applied with push-theme.ps1
+        - label: The remote's keys (Home, Back, Inputs) behave as expected
+  - type: textarea
+    id: notes
+    attributes:
+      label: What didn't work, and anything else worth knowing
+      description: For example the TV's RAM, firmware version, or steps you needed that the README doesn't mention.

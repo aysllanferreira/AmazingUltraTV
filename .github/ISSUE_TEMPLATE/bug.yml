@@ -1,0 +1,63 @@
+name: Bug report
+description: Something in the launcher or the scripts doesn't work as it should.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please don't paste your TV's IP address, network name or anything else personal. Security problems go through SECURITY.md instead.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What you saw, and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open the home screen
+        2. Press Down on the remote
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: tv-model
+    attributes:
+      label: TV brand and model
+      placeholder: Philips 55PUS8808
+    validations:
+      required: true
+  - type: dropdown
+    id: tv-os
+    attributes:
+      label: TV system
+      options:
+        - Google TV
+        - Android TV
+        - Other / not sure
+    validations:
+      required: true
+  - type: input
+    id: android-version
+    attributes:
+      label: Android version
+      description: On the TV, Settings → System → About.
+      placeholder: "11"
+    validations:
+      required: true
+  - type: input
+    id: launcher-version
+    attributes:
+      label: AmazingUltraTV version
+      description: On the TV, Settings → Apps → AmazingUltraTV, or the commit you built from.
+      placeholder: 3.2 (versionCode 11)
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots or logs
+      description: Optional. Remove IP addresses and network names first.

@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build, test and check branding
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # Rejects a pull request that swaps gradle-wrapper.jar for something other than an official release.
+      - uses: gradle/actions/wrapper-validation@8da46b539cd8fe6ab27ca75128919a18d757604c # v6.4.1
+
+      - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      # Installed explicitly rather than trusting whatever the runner image ships.
+      - name: Install Android SDK packages
+        run: |
+          sdkmanager="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          (yes || true) | "$sdkmanager" --licenses > /dev/null
+          "$sdkmanager" "platforms;android-34" "build-tools;34.0.0"
+
+      - name: Build and run unit tests
+        working-directory: launcher
+        run: ./gradlew test assembleRelease --console=plain
+
+      - name: Branding check
+        shell: pwsh
+        run: ./scripts/check-branding.ps1
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: AmazingUltraTV-apk
+          path: launcher/app/build/outputs/apk/release/app-release.apk
+          if-no-files-found: error
