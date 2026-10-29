@@ -1,0 +1,12 @@
+# Build output
+launcher/.gradle/
+launcher/build/
+launcher/app/build/
+launcher/local.properties
+*.apk
+
+# TV backups hold device identifiers and settings; keep them off GitHub
+backups/
+
+.claude
+openspec
