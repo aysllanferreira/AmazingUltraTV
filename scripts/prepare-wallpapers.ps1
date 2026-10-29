@@ -22,7 +22,7 @@ $MaxCaption = 80           # the launcher cuts longer captions anyway
 # Darkening, tuned on the TV: a fade to black toward the bottom edge (the dock), and a soft corner at the top
 # left (greeting, clock and date).
 $BottomFrom = 0.55; $BottomAlpha = 178                    # from 55% of the height down to 70% black
-$CornerAlpha = 140; $CornerWidth = 0.40; $CornerHeight = 0.55   # 55% black, fading out across this much
+$CornerAlpha = 180; $CornerWidth = 0.55; $CornerHeight = 0.60   # 70% black, fading out across this much
 
 # Paths resolve against PowerShell's location, not the process's, so relative arguments work as typed.
 function Get-FullPath([string]$Path) { $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($Path).TrimEnd('\') }
